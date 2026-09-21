@@ -1,0 +1,28 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        int i = 0;
+        int j = nums.length - 1;
+        int pivot = (i + j) / 2;
+
+        // Using <= allows the pointers to check the very last remaining number
+        while (i <= j) 
+        {
+            if (nums[pivot] == target) 
+            {
+                return pivot;
+            }
+            else if (target < nums[pivot]) 
+            {
+                j = pivot - 1; 
+                pivot = (i + j) / 2;
+            }
+            else 
+            {
+                i = pivot + 1; 
+                pivot = (i + j) / 2;
+            }
+        }
+        
+        return -1; 
+    }
+}
